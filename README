@@ -1,0 +1,19 @@
+This is a compiler for a subset of Pascal . to use it 
+lets assume you have a pascal code in file test.pas   
+
+
+   compiler <test.pas  >test.res
+
+
+test.res need to be interpreted to run :
+
+
+   interpret test.res 
+
+
+to see the code generation of the code 
+
+
+   disassemble test.res  
+
+   

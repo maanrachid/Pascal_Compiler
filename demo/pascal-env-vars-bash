@@ -1,0 +1,5 @@
+GPC_PATH=/home/faculty/dlc/demo665/pas/usr/local
+GPC_LIB=/home/faculty/dlc/demo665/pas/usr/local/lib/gcc-lib/i686-pc-linux-gnu/2.95.3
+PATH=$PATH:$GPC_PATH/bin
+GPC_EXEC_PREFIX=$GPC_LIB/
+export GPC_EXEC_PREFIX
