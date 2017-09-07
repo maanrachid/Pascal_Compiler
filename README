@@ -1,24 +1,24 @@
-This is a compiler for a subset of Pascal. It was written by Maan Rachid
+This is a compiler for a subset of Pascal. It was mostly written by Maan Rachid
 at  Suffolk University (2002).  
 
-to use it lets assume you have a pascal code in file test.pas   
+To use it, let us assume you have a pascal code in file test.pas   
 
 
    compiler <test.pas  >test.res
 
 
-test.res need to be interpreted to run :
+test.res needs to be interpreted in order to run the code:
 
 
    interpret test.res 
 
 
-to see the code generation of the code 
+To see the code generation of the code 
 
 
    disassemble test.res  
 
-if you have any question, email me:
+If you have any question, email me:
 
 Maan Haj Rachid
 maan.rachid@qu.edu.qa
