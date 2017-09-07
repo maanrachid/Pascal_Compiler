@@ -1,5 +1,7 @@
-This is a compiler for a subset of Pascal . to use it 
-lets assume you have a pascal code in file test.pas   
+This is a compiler for a subset of Pascal. It was written by Maan Rachid
+at  Suffolk University (2002).  
+
+to use it lets assume you have a pascal code in file test.pas   
 
 
    compiler <test.pas  >test.res
