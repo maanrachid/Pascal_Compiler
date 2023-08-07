@@ -13,6 +13,12 @@
 /* *********************************************************************** */
 /*                               Variables                                 */
 /* *********************************************************************** */
+procListRec *builtinProcs;
+typeRec *integerType;
+typeRec *realType;
+typeRec *boolType;
+typeRec *charType;
+typeRec *stringType; 
 
 static int currentLevel;
 

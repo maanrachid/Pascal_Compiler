@@ -17,5 +17,5 @@ begin
    writeString('Value for n: ');
    readInteger(n);
    factorial(n, result);
-   writeString('The answer: ')
+   writeInteger(result)
 end.

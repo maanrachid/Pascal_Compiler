@@ -11,6 +11,11 @@ programRec *theprogram;
 
 %}
 
+%{
+int yylex();
+int yyerror(char *s);
+%}
+
 %union {
   tokenRec *val;
   programRec *prog;

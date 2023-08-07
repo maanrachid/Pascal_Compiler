@@ -8,7 +8,7 @@
 
 void announceNoErrors(void);
 
-main()
+int main()
 {
     programRec *p;
     procListRec *c;

@@ -1,7 +1,7 @@
 This is a compiler for a subset of Pascal. It was mostly written by Maan Rachid
 at  Suffolk University (2002).  
 
-To use it, let us assume you have a pascal code in file test.pas   
+To use it, let us assume you have a pascal code in a file test.pas   
 
 
    compiler <test.pas  >test.res
@@ -18,7 +18,13 @@ To see the code generation of the code
 
    disassemble test.res  
 
+
+demo folder has several pascal files to test.
+
+Note: bison, flex, flex-devel should be installed (using yum or apt-get)
+
 If you have any question, email me:
 
+
 Maan Haj Rachid
-mh1108047@qu.edu.qa
+maanhajrachid@hotmail.com

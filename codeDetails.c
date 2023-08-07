@@ -5,6 +5,7 @@
 #include "codeDetails.h"
 #include "tools.h"
 #include "opcodes.h"
+#include <string.h>
 
 #define STRMAX 1000
 
@@ -36,7 +37,9 @@ static codeRec *codeListHead, *codeListTail;
 static codeRec *makeCodeRec(void)
 {
     codeRec *rec;
-    rec = allocMem(sizeof(codeRec), __func__);
+	const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    rec = allocMem(sizeof(codeRec), nonConstPtr);
     rec->opcode = -1;
     rec->numOps = -1;
     rec->op1 = -1;

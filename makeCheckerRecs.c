@@ -2,6 +2,7 @@
 #include "syntaxTree.h"
 #include "check.h"
 #include "checkerGlobals.h"
+#include <string.h>
 
 
 static typeRec *makeGENERALType(char *caller);
@@ -27,14 +28,18 @@ static typeRec *makeGENERALType(char *caller)
 
 typeRec *makeSimpleType(typeType tt)
 {
-    typeRec *rec = makeGENERALType(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    typeRec *rec = makeGENERALType(nonConstPtr);
     rec->tt = tt;
     return rec;
 }
 
 typeRec *makeArrayType(int lowBound, int highBound, typeRec *componentType)
 {
-    typeRec *rec = makeGENERALType(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    typeRec *rec = makeGENERALType(nonConstPtr);
     rec->tt = ARRAYTYPE;
     rec->lowBound = lowBound;
     rec->highBound = highBound;
@@ -44,7 +49,9 @@ typeRec *makeArrayType(int lowBound, int highBound, typeRec *componentType)
 
 typeRec *makeRecordType(struct fieldInfoRec *fi)
 {
-    typeRec *rec = makeGENERALType(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    typeRec *rec = makeGENERALType(nonConstPtr);
     rec->tt = RECORDTYPE;
     rec->fi = fi;
     return rec;
@@ -54,7 +61,9 @@ fieldInfoRec *makeFieldInfoRec(char *fieldName, typeRec *fieldType,
 			       fieldInfoRec *next)
 {
     fieldInfoRec *rec;
-    rec = allocMem(sizeof(fieldInfoRec), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    rec = allocMem(sizeof(fieldInfoRec), nonConstPtr);
     rec->fieldName = fieldName;
     rec->fieldType = fieldType;
     rec->size = 0;
@@ -82,7 +91,9 @@ static varInfoRec *makeGENERALVarInfoRec(char *caller)
 
 varInfoRec *makeLocalVarInfoRec(char *name, typeRec *vType, int vLevel)
 {
-    varInfoRec *rec = makeGENERALVarInfoRec(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    varInfoRec *rec = makeGENERALVarInfoRec(nonConstPtr);
     rec->vKind = LOCALVAR;
     rec->name = name;
     rec->vType = vType;
@@ -92,7 +103,9 @@ varInfoRec *makeLocalVarInfoRec(char *name, typeRec *vType, int vLevel)
 
 varInfoRec *makeValueParamInfoRec(char *name, typeRec *vType, int vLevel)
 {
-    varInfoRec *rec = makeGENERALVarInfoRec(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    varInfoRec *rec = makeGENERALVarInfoRec(nonConstPtr);
     rec->vKind = VALUEPARAM;
     rec->name = name;
     rec->vType = vType;
@@ -102,7 +115,9 @@ varInfoRec *makeValueParamInfoRec(char *name, typeRec *vType, int vLevel)
 
 varInfoRec *makeVarParamInfoRec(char *name, typeRec *vType, int vLevel)
 {
-    varInfoRec *rec = makeGENERALVarInfoRec(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    varInfoRec *rec = makeGENERALVarInfoRec(nonConstPtr);
     rec->vKind = VARPARAM;
     rec->name = name;
     rec->vType = vType;
@@ -113,7 +128,9 @@ varInfoRec *makeVarParamInfoRec(char *name, typeRec *vType, int vLevel)
 varListRec *makeVarListRec(varInfoRec *theVar, varListRec *next)
 {
     varListRec *listNode;
-    listNode = allocMem(sizeof(varListRec), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    listNode = allocMem(sizeof(varListRec), nonConstPtr);
     listNode->theVar = theVar;
     listNode->next = next;
     return listNode;
@@ -145,7 +162,9 @@ static procRec *makeGENERALProc(char *caller)
 
 procRec *makeUserDefProc(char *name, int level)
 {
-    procRec *rec = makeGENERALProc(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    procRec *rec = makeGENERALProc(nonConstPtr);
     rec->pKind = USERDEFINEDPROC;
     rec->name = name;
     rec->level = level;
@@ -154,7 +173,9 @@ procRec *makeUserDefProc(char *name, int level)
 
 procRec *makeForwardProc(char *name, int level, procHeading *theHeading)
 {
-    procRec *rec = makeGENERALProc(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    procRec *rec = makeGENERALProc(nonConstPtr);
     rec->pKind = USERDEFINEDPROC;
     rec->name = name;
     rec->level = level;
@@ -164,7 +185,9 @@ procRec *makeForwardProc(char *name, int level, procHeading *theHeading)
 
 procRec *makeBuiltinProc(char *name, varListRec *params, int whichBuiltin)
 {
-    procRec *rec = makeGENERALProc(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    procRec *rec = makeGENERALProc(nonConstPtr);
     rec->pKind = BUILTINPROC;
     rec->name = name;
     rec->params = params;
@@ -176,7 +199,9 @@ procRec *makeBuiltinProc(char *name, varListRec *params, int whichBuiltin)
 procRec *makeBuiltinFunction(char *name, varListRec *params,
 			     typeRec *returnType, int whichBuiltin)
 {
-    procRec *rec = makeGENERALProc(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    procRec *rec = makeGENERALProc(nonConstPtr);
     rec->pKind = BUILTINFUNCTION;
     rec->name = name;
     rec->params = params;
@@ -189,7 +214,9 @@ procRec *makeBuiltinFunction(char *name, varListRec *params,
 procListRec *makeProcListRec(procRec *theProc, procListRec *next)
 {
     procListRec *rec;
-    rec = allocMem(sizeof(procListRec), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    rec = allocMem(sizeof(procListRec), nonConstPtr);
     rec->theProc = theProc;
     rec->next = next;
     return rec;
@@ -202,7 +229,9 @@ procListRec *makeProcListRec(procRec *theProc, procListRec *next)
 varData *makeVarData(typeRec *t, varInfoRec *vi)
 {
     varData *rec;
-    rec = allocMem(sizeof(varData), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    rec = allocMem(sizeof(procListRec), nonConstPtr);
     rec->t = t;
     rec->vi = vi;
     return rec;
@@ -228,7 +257,9 @@ static exprData *makeGENERALExprData(char *caller)
 
 exprData *makeIntConstExprData(int val)
 {
-    exprData *rec = makeGENERALExprData(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
     rec->kind = INTCONSTKIND;
     rec->t = integerType;
     rec->intConstVal = val;
@@ -237,7 +268,9 @@ exprData *makeIntConstExprData(int val)
 
 exprData *makeRealConstExprData(double val)
 {
-    exprData *rec = makeGENERALExprData(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
     rec->kind = REALCONSTKIND;
     rec->t = realType;
     rec->realConstVal = val;
@@ -246,8 +279,10 @@ exprData *makeRealConstExprData(double val)
 
 exprData *makeBooleanConstExprData(int val)
 {
-    exprData *rec = makeGENERALExprData(__func__);
-    rec = allocMem(sizeof(exprData), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
+    rec = allocMem(sizeof(exprData), nonConstPtr);
     rec->kind = BOOLCONSTKIND;
     rec->t = boolType;
     rec->boolConstVal = val;
@@ -256,7 +291,9 @@ exprData *makeBooleanConstExprData(int val)
 
 exprData *makeStrConstExprData(char *val)
 {
-    exprData *rec = makeGENERALExprData(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
     rec->kind = STRCONSTKIND;
     rec->t = stringType;
     rec->strConstVal = val;
@@ -267,7 +304,9 @@ exprData *makeStrConstExprData(char *val)
 
 exprData *makeFunCallExprData(typeRec *t, procRec *f)
 {
-    exprData *rec = makeGENERALExprData(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
     rec->kind = FUNCALLKIND;
     rec->t = t;
     rec->f = f;
@@ -276,7 +315,9 @@ exprData *makeFunCallExprData(typeRec *t, procRec *f)
 
 exprData *makeOtherExprData(typeRec *t)
 {
-    exprData *rec = makeGENERALExprData(__func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    exprData *rec = makeGENERALExprData(nonConstPtr);
     rec->kind = OTHEREXPRKIND;
     rec->t = t;
     return rec;
@@ -289,7 +330,9 @@ exprData *makeOtherExprData(typeRec *t)
 stmntData *makeProcCallStmntData(procRec *p)
 {
     stmntData *rec;
-    rec = allocMem(sizeof(stmntData), __func__);
+    const char *constPtr = __func__;
+    char *nonConstPtr = (char *)constPtr;
+    rec = allocMem(sizeof(stmntData), nonConstPtr);
     rec->p = p;
     return rec;
 }
