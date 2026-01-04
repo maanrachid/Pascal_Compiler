@@ -9,6 +9,8 @@ To use it, let us assume you have a pascal code in a file test.pas
 
 test.res needs to be interpreted in order to run the code:
 
+INTERPRETER & DISASSEMBLER ARE OLD BINARY (2002!), THEY MAY NOT WORK
+
 
    interpret test.res 
 
