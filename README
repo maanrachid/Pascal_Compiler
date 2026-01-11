@@ -3,13 +3,10 @@ at  Suffolk University (2002).
 
 To use it, let us assume you have a pascal code in a file test.pas   
 
-
    compiler <test.pas  >test.res
 
 
 test.res needs to be interpreted in order to run the code:
-
-INTERPRETER & DISASSEMBLER ARE OLD BINARY (2002!), THEY MAY NOT WORK
 
 
    interpret test.res 
@@ -21,9 +18,11 @@ To see the code generation of the code
    disassemble test.res  
 
 
-demo folder has several pascal files to test.
+demo folder has several pascal files to test. You can recreate disassemble & interpret by running makefile inside folder disa_interp (you dont have too unless they don't workon your machine). 
+
 
 Note: bison, flex, flex-devel should be installed (using yum or apt-get)
+
 
 If you have any question, email me:
 
